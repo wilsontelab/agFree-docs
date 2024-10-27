@@ -25,21 +25,21 @@ calls to multiple pipelines together in a single file,
 [as described here](https://midataint.github.io/mdi/docs/job_config_files.html#multi-pipeline-job-files).
 
 To illustrate the relationship between job files and command line options,
-the following command lists all options:
+the following command lists all options for pipeline action `align genome`:
 
 ```sh
 af align genome --help
 ```
 
-and the following command shows how those options are parsed into a job file template:
+and the following command shows how those options are parsed into a corresponding job file template:
 
 ```sh
 af align template --all-options
 ```
 
 Most options have defaults and do not need to be specified every time.
-Accordingly, our {% include templates.html type="" %} are shorter than the complete templates.
+Accordingly, our {% include templates.html type="" %} are shorter than the complete option templates.
 
-Using job file templates exposes the many useful 
+Using job file templates additionally exposes the many useful 
 [MDI command line interface tools](https://midataint.github.io/mdi/docs/commands/management.html)
 that you can use to monitor your work jobs.

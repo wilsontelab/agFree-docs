@@ -21,7 +21,7 @@ A specific representative of a species, e.g., a human individual, clonal cell li
 - genotypes differ from a species base reference genome on one or both alleles
 - ideally, genotypes are tracked with custom references with diploid phasing (see below)
 
-#### sample
+### sample
 A specific biological source of gDNA from a genotype, e.g., a tissue block or cell pool, or the corresponding gDNA.
 - it is possible for samples to be admixtures of genotypes, but this adds complexity
 
@@ -138,7 +138,7 @@ A single, specific (blunt) restriction enzyme used to generate library inserts f
 
 ### site
 A specific numbered position in a haploid reference genome where a RE cleaves.
-- sites are tracked as the 1-referenced position AFTER the cleaved phosphodiester bond, e.g., 5'-gat|Atc
+- sites are tracked as the 1-referenced position AFTER the cleaved phosphodiester bond, e.g., `5'-gat|Atc`
 - most sites are predicted in advance by in silico digestion of the genome or genotype
 - site identifiers are either (where suffix 1 denotes that values are 1-referenced):
     - RNAME:sitePos1, which defines the genomic location of the site
@@ -154,7 +154,7 @@ A portion of a haplotype released by cleavage at sites/RFLPs by digestion with a
 - some contigs result from partial RE digestion and thus have an internal RE site
 - rare contigs/inserts derive from non-RE, randomly sheared fragments, which are discarded
 - the uninformative, outermost, telomeric fragments on chromosomes are ignored/lost during analysis
-- fragments identifiers are RNAME:\<leftmost siteIndex1 along chrom\>, i.e.,
+- fragments identifiers are `RNAME:<leftmost siteIndex1 along chrom>`, i.e.,
 ```
 --unused--|--frag1--|--frag2--|--unused--  (numbering resets on each chrom)
         site1     site2     site3
@@ -185,7 +185,7 @@ nodes represent numbered positions in a haploid genome reference.
 
 ### node (node position)
 A specific numbered position on a genome strand; two nodes define an edge.
-- node identifiers are RNAME:pos1:strand(+|- or 0|1)
+- node identifiers are `RNAME:pos1:strand(+|- or 0|1)`
 
 ### edge
 A connection between two nodes, either an alignment, a read projection, a pair gap, or an SV junction.
@@ -209,7 +209,7 @@ An edge that corresponds to the connection between two unmerged reads of a pair.
 
 ### junction 
 An edge that nominates a SV by connecting two distant alignments through the sequenced bases of a contig.
-- each read thus has a series of edges as: alignment[-junction|gap-alignment...][-projection]
+- each read thus has a series of edges as: `alignment[-junction|gap-alignment...][-projection]`
 - junction edges carry metadata on the number and identity of inserted or microhomologous bases
 
 ### path
