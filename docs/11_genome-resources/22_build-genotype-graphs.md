@@ -1,12 +1,12 @@
 ---
-title: Build Genome Graphs
+title: Build Genotype Graphs
 parent: Genome Resources
 has_children: false
 nav_order: 20
 published: true
 ---
 
-### OPTIONAL: Build a diploid genome graph for read alignment
+### OPTIONAL: Build a diploid genotype graph for read alignment
 
 If you have external FASTA file(s) that define the (two) haplotypes of
 a (diploid) genotype from which source gDNA was obtained, 
