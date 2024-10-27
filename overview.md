@@ -4,10 +4,13 @@ has_children: false
 nav_order: 0
 ---
 
+<!-- please do not alter the next line -->
+{% include mdi-project-overview.md %}
+
 > Initial beta documentation for the **agFree** tool suite.
 > For developer use only.
 
-These pages provide a step-by-step guide for using the **agFree** repository for 
+These pages provide a step-by-step guide for using the **agFree** MDI tool suite for 
 **tagFree** or **ligFree** data analysis, including:
 
 - installing code tools
@@ -31,11 +34,8 @@ have one or more _actions_ (_e.g._, `genome`), to yield calls like `af align gen
 
 We provide {% include templates.html type="" %}
 to help execute all essential pipeline actions. 
-It is generally easier and better to use job files to execute agFree pipelines
+It is generally easier and better to use job files to execute `agFree` pipelines
 rather than constructing command lines calls, although both are possible.
-
-<!-- please do not alter the next line -->
-{% include mdi-project-overview.md %}
 
 <!-- please do not alter the next line -->
 {% include mdi-project-documentation.md %}

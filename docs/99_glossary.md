@@ -7,9 +7,10 @@ published: true
 
 ## agFree - Glossary of Terms and Identifiers
 
-This page provides a glossary of hierarchical terms used by the **`agFree`** data analysis pipeline.
-These keywords are used consistently throughout the code and comments, so it is essential that
-you understand their precise meaning.
+This page defines hierarchical terms used by the `agFree` data analysis pipelines.
+These keywords are used throughout the code and documentation, 
+so it is important to understand their precise meaning.
+
 
 ## Biological Sources
 
