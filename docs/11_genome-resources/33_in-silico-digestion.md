@@ -17,8 +17,8 @@ Use the following commands directly, or call them using the {% include templates
 
 ```sh
 af genome digest --help
-af genome digest ...
-af genotype digest ...
+af genome digest ...    # for haploid reference genomes
+af genotype digest ...  # for diploid phased genotypes
 af submit <jobFile>.yml
 ```
 
@@ -27,7 +27,7 @@ You will typically submit these jobs to your shared server job scheduler.
 
 Digestion outputs include site lists and genome lookup
 indices placed into the pre-existing genome or genotype folder. Genome digestion
-also places a data package in <--output-dir>/<--data-name> for visualization 
+also places a data package in `<--output-dir>/<--data-name>` for visualization 
 in a Stage 2 app.
 
 ### tagFree ONLY: Index the _in silico_ RE sites for use in tagFree data analysis
@@ -39,7 +39,7 @@ of each genome's _in silico_ sites obtained above for each relevant RE
 Site indexing is performed automatically during genotype _in silico_ digestion,
 so this section only applies to haploid reference genomes.
 
-Use the following command directly, or call it using the [job file templates]().
+Use the following command directly, or call it using the {% include templates.html type="digest" %}.
 
 ```sh
 af genome index --help
@@ -51,7 +51,7 @@ It takes a few minutes to index one RE's sites for a given genome.
 You will typically submit these jobs to your shared server job scheduler,
 but could do it in an interactive shell. 
 
-Indices are placed in the preexisting genome folder.
+Indices are placed in the pre-existing genome folder.
 
 You could use `genome index` output as `--re-sites-dir` for ligFree analysis,
 but using post-alignment `locate`, below, provides better RFLP sensitivity.

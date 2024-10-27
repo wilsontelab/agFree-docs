@@ -21,8 +21,8 @@ These pages provide a step-by-step guide for using the **agFree** repository for
 
 Steps are presented in the order in which you will typically execute them. 
 
-Commands are structured in a hierarchical manner where _pipelines_ (_e.g._, `align`)
-have one or more _actions_ (_e.g._, `genome`), to yield calls like `af align genome`.
+Commands are structured in a hierarchical manner where _pipelines_ (e.g., `align`)
+have one or more _actions_ (e.g., `genome`), to yield calls like `af align genome`.
 
 We provide 
 [job file templates](44_job-file-templates) 

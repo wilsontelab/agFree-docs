@@ -17,7 +17,7 @@ install its [MDI](https://midataint.github.io/) framework dependencies.
 This initial agFree code installation takes only a minute or two.
 
 Instructions below assume you created an alias to your
-agFree installation called `af` - substitute your alias or command as needed.
+agFree installation called `af. Substitute your alias or command as needed.
 
 Notice the folder structure of your agFree installation (abbreviated):
 
@@ -33,5 +33,5 @@ agFree
 │       ├── genotypes   # default location for built genotype graphs
 │       ├── nanopore    # default location for downloaded ONT software and models
 │       └── zoo         # default location for multi-genome alignment indices
-└── run # the run command to which `af` is aliased
+└── run # the run command script to which `af` is aliased
 ```

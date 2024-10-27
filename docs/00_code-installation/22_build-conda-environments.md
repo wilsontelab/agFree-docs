@@ -16,7 +16,7 @@ All environments are listed,
 you may not need to build them all for your work.
 
 `conda` must be available on your system for these commands to succeed.
-To activate conda during command execution, _e.g._, on a shared compute
+To activate conda during command execution, e.g., on a shared compute
 server resource, you many need to edit file 
 `agFree/mdi/config/stage1-pipelines.yml` in your agFree installation
 to set options `conda:load-command` and possibly `conda:profile-script`.
@@ -33,5 +33,5 @@ af basecall conda --create  # required for ONT basecalling
 It takes many minutes to create each environment.
 Commands are typically run in an interactive shell.
 
-Environments are placed into your installations's `environments` folder
+Environments are placed into your installation's `environments` folder
 and used from that location whenever you make a call to a pipeline.

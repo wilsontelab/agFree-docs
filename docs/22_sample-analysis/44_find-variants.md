@@ -27,4 +27,4 @@ af submit <jobFile>.yml
 It takes minutes (long-read) to hours (short-read) to map and characterize fragments.
 You will typically submit these jobs to your shared server job scheduler.
 
-Various output files are placed in <--output-dir>/<--data-name>.
+Various output files are placed in `<--output-dir>/<--data-name>`.

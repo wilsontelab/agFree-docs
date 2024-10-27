@@ -22,15 +22,15 @@ Use the following commands directly, or call them using the {% include templates
 ```sh
 af align --help
 af align genome --help
-af align genome ...
-af align genotype ...
+af align genome ...    # for haploid reference genomes
+af align genotype ...  # for diploid phased genotypes
 af submit <jobFile>.yml
 ```
 
 It takes hours to align most read data sets.
 You will typically submit these jobs to your shared server job scheduler.
 
-The output name-sorted bam file is placed into <--output-dir>/<--data-name>.
+The output name-sorted bam file is placed into `<--output-dir>/<--data-name>`.
 It has custom agFree tags and null values for SEQ and QUAL for non-variant reads.
 
 ### OPTIONAL: Realign variant reads to other species likely to contaminate libraries
@@ -50,4 +50,4 @@ af submit <jobFile>.yml
 It takes hours to align most read data sets (fewer reads are aligned, but to more genomes).
 You will typically submit these jobs to your shared server job scheduler.
 
-The output QNAME list is placed into <--output-dir>/<--data-name> alongside the name-sorted bam.
+The output QNAME list is placed into `<--output-dir>/<--data-name>` alongside the name-sorted bam.
