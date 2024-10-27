@@ -1,0 +1,39 @@
+---
+variables:
+    REPOSITORY:             agFree
+
+    SCRATCH_DIR:            /scratch
+    TURBO_DIR:              /nfs/turbo
+
+    LEAD_PI:                wilsonte
+    PI_GITHUB_ORG:          wilsontelab
+    PI_TURBO_DIR:           ${TURBO_DIR}/path-${LEAD_PI}-turbo # umms-${LEAD_PI}
+    SLURM_ACCOUNT:          ${LEAD_PI}0 # the default UM Research Compute Package account 
+
+    SCRATCH_DIR:            ${SCRATCH_DIR}/${LEAD_PI}_root
+    ACCOUNT_SCRATCH_DIR:    ${SCRATCH_DIR}/${SLURM_ACCOUNT}
+    USER_SCRATCH_DIR:       ${ACCOUNT_SCRATCH_DIR}/${USER}
+    SHARED_SCRATCH_DIR:     ${ACCOUNT_SCRATCH_DIR}/shared_data
+    TMP_SCRATCH_DIR:        ${SHARED_SCRATCH_DIR}/tmp
+    PIPELINE_SCRATCH_DIR:   ${SHARED_SCRATCH_DIR}/${REPOSITORY}/${PIPELINE_NAME}
+
+    RESOURCES_DIR:          ${MDI_DIR}/resources
+    GENOMES_DIR:            ${RESOURCES_DIR}/genomes
+    HAPLOTYPES_DIR:         ${RESOURCES_DIR}/haplotypes
+    GENOTYPES_DIR:          ${RESOURCES_DIR}/genotypes
+    ZOO_DIR:                ${RESOURCES_DIR}/zoo
+    GUIDE_POOLS_DIR:        ${RESOURCES_DIR}/guide_pools
+    TARGETS_DIR:            ${RESOURCES_DIR}/targets
+
+    OUTPUT_DIR:             ${PI_TURBO_DIR}/mdi/${PI_GITHUB_ORG}/${REPOSITORY}/output
+    PROJECTS_DIR:           ${OUTPUT_DIR}/projects
+    SITES_DIR:              ${OUTPUT_DIR}/sites
+
+    ZOO_COMMON:             canFam4,felCat9,bosTau9,galGal6+sacCer3+BE104 # BE104 is E. coli
+    HS1_ZOO:                mm39,${ZOO_COMMON}
+    MM39_ZOO:               hg38,${ZOO_COMMON}
+shared:
+    job-manager:
+        account:        ${SLURM_ACCOUNT}
+    resources: 
+        tmp-dir-large:  ${TMP_SCRATCH_DIR}

@@ -1,0 +1,21 @@
+---
+# job file template for agFree pipeline actions `trim ONT` and `trim report`
+# as applied to samples where ONT basecalling was performed externally
+pipeline: agFree/trim:latest
+shared:
+    output:
+        output-dir: /path/to/project_dir # a project might ultimately carry one or more samples/flowcells
+        data-name: my_sample
+ONT:
+    fastq-file:
+        fastq-dir: /path/to/fastq
+    library-properties:
+        library-type: ligFreeLR
+    resources:
+        n-cpu: 4
+        ram-per-cpu: 4G
+    restriction-enzyme:
+        enzyme-name: EcoRV
+execute:
+    - ONT
+    - report

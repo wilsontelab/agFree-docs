@@ -1,0 +1,10 @@
+---
+# job file template for agFree pipeline action `basecall download`
+# to obtain tools such as Dorado and associated ONT models
+pipeline: agFree/basecall:latest
+download:
+    output:
+        output-dir: ${PWD} # the working directory, not where tools will be downloaded
+        data-name:  _download_ont
+execute:
+    - download

@@ -1,0 +1,10 @@
+---
+# job file template for agFree pipeline action `genotype download`
+# to obtain tools such as Cactus Pangenome and VG
+pipeline: agFree/genotype:latest
+download:
+    output:
+        output-dir: ${PWD} # the working directory, not where tools will be downloaded
+        data-name: _download_graph_tools
+execute:
+    - download

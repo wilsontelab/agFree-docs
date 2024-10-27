@@ -1,0 +1,31 @@
+---
+# job file template for agFree pipeline actions `basecall ONT` and `trim report`
+# variables and shared options specified here are available to all actions
+shared:
+    output:
+        output-dir: /path/to/project_dir # a project might ultimately carry one or more samples/flowcells
+        data-name: my_sample
+---
+pipeline: agFree/basecall:latest
+ONT:
+    pod5-file:
+        pod5-dir: /path/to/pod5
+    dorado:
+        pod5-buffer-size: 60G
+    library-properties:
+        library-type: ligFreeLR
+    restriction-enzyme:
+        enzyme-name: EcoRV
+    resources:
+        n-cpu: 8
+        n-gpu: 4
+        ram-per-cpu: 12G # 96G total request
+    job-manager:
+        time-limit: 48:00:00
+execute:
+    - ONT
+---
+# use a multi-pipeline template to generate a trim report after basecalling is done
+pipeline: agFree/trim:latest
+execute:
+    - report

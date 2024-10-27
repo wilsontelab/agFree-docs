@@ -1,0 +1,27 @@
+---
+# job file template for agFree pipeline action `genotype digest`
+# this example uses genotype NA12878_scV8 from Porubsky (2021) as an example
+pipeline: agFree/genotype:latest
+variables:
+    GENOME:   hs1
+    GENOTYPE: NA12878_scV8
+digest:
+    genome:
+        genome:   ${GENOME}
+    genotype:
+        genotype: ${GENOTYPE}
+    restriction-enzyme:
+        enzyme-name: 
+            - AluI    # thus, this job file digests one genotype with multiple enzymes
+            - HaeIII
+            - PvuII
+            - EcoRV
+    output:
+        output-dir: ${PWD} # the working directory, not where site lists will be placed
+        data-name:
+            - _digest_${GENOTYPE}_AluI
+            - _digest_${GENOTYPE}_HaeIII
+            - _digest_${GENOTYPE}_PvuII
+            - _digest_${GENOTYPE}_EcoRV
+execute:
+    - digest

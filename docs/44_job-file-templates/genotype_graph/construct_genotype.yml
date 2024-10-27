@@ -1,0 +1,28 @@
+---
+# job file template for agFree pipeline action `genotype construct`
+# this example uses genotype NA12878_scV8 from Porubsky (2021) as an example
+pipeline: agFree/genotype:latest
+variables:
+    GENOME:             hs1
+    GENOTYPE_BASE:      NA12878
+    GENOTYPE:           ${GENOTYPE_BASE}_scV8
+    HAPLOTYPE_PREFIX:   /path/to/Porubsky_2021/${GENOTYPE_BASE}_giab_pbsq2-ccs_1000-pereg
+    HAPLOTYPE_SUFFIX:   un.racon-p2.scV8.fasta
+construct:
+    genome:
+        genome:           ${GENOME}
+    genotype:
+        genotype:         ${GENOTYPE}
+    haplotypes:
+        haplotype1-fasta: ${HAPLOTYPE_PREFIX}.h1-${HAPLOTYPE_SUFFIX}
+        haplotype2-fasta: ${HAPLOTYPE_PREFIX}.h2-${HAPLOTYPE_SUFFIX}
+    output:
+        output-dir:       ${PWD} # the working directory, not where genotype files will be placed
+        data-name:        _construct_${GENOTYPE}
+    resources:
+        n-cpu:       36
+        ram-per-cpu: 4G
+    job-manager:
+        exclusive: true
+execute:
+    - construct

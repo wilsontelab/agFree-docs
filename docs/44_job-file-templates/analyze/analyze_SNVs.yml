@@ -1,0 +1,28 @@
+---
+# job file template for agFree pipeline actions `analyze fragments` and `analyze SNVs`
+# applicable to sequencing platforms with high base accuracy, exemplified using ligFreeSR on paired-end Aviti 
+pipeline: agFree/analyze:latest
+variables:
+    GENOME:             hs1
+    ENZYME_NAME:        HaeIII
+    CELL_LINE:          GM12878
+    SAMPLE_GENOTYPE:    ${CELL_LINE}_unspecified
+shared:
+    platform-properties:
+        sequencing-platform: AvitiPE
+    library-properties:
+        library-type:   ligFreeSR
+    genome:
+        genome:         ${GENOME}
+    restriction-enzyme:
+        enzyme-name:    ${ENZYME_NAME}
+    re-sites:
+        re-sites-dir:   /path/to/sites_dir/${SAMPLE_GENOTYPE}/${SAMPLE_GENOTYPE}_${ENZYME_NAME} # the recommended name format
+    output:
+        output-dir: /path/to/project_dir
+        data-name:  my_sample
+fragments:
+SNVs:
+execute:
+    - fragments
+    - SNVs

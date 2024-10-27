@@ -1,0 +1,28 @@
+---
+# job file template for agFree pipeline actions `analyze fragments` and `analyze SVs`
+# applicable to all sequencing platforms, exemplified using ligFreeLR on ONT
+pipeline: agFree/analyze:latest
+variables: 
+    GENOME:             hs1
+    ENZYME_NAME:        EcoRV
+    CELL_LINE:          GM12878
+    SAMPLE_GENOTYPE:    ${CELL_LINE}_unspecified
+shared:
+    platform-properties:
+        sequencing-platform: ONT
+    library-properties:
+        library-type:   ligFreeLR
+    genome:
+        genome:         ${GENOME}
+    restriction-enzyme:
+        enzyme-name:    ${ENZYME_NAME}
+    re-sites:
+        re-sites-dir:   /path/to/sites_dir/${SAMPLE_GENOTYPE}/${SAMPLE_GENOTYPE}_${ENZYME_NAME} # the recommended name format
+    output:
+        output-dir: /path/to/project_dir
+        data-name:  my_sample
+fragments:
+SVs:
+execute:
+    - fragments
+    - SVs

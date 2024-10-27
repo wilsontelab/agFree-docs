@@ -1,0 +1,9 @@
+# never include nested, i.e., suite-centric MDI installations
+# within this suite's git repository, or suite-centric containers
+/mdi/
+/containers/
+
+unused/
+old/
+_unused/
+_old/

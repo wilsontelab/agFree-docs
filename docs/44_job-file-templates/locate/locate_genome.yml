@@ -1,0 +1,26 @@
+---
+# job file template for agFree pipeline action `locate genome`
+# to find RE sites for a given sample or set of samples
+pipeline: agFree/locate:latest
+variables: 
+    PROJECT_DIR:        /path/to/project_dir
+    GENOME:             hs1
+    ENZYME_NAME:        EcoRV
+    CELL_LINE:          GM12878
+    SAMPLE_GENOTYPE:    ${CELL_LINE}_unspecified
+genome:
+    platform-properties:
+        sequencing-platform: ONT
+    restriction-enzyme:
+        enzyme-name:     ${ENZYME_NAME}
+    localization-input:
+        genotype-re-dir: ${PROJECT_DIR}
+    localization-tuning:
+        min-rflp-evidence: 12
+    genome:
+        genome:   ${GENOME}
+    output:
+        output-dir: /path/to/sites_dir
+        data-name:  ${SAMPLE_GENOTYPE}_${ENZYME_NAME} # the recommended name format
+execute:
+    - genome

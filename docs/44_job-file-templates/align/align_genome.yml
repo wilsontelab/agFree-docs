@@ -1,0 +1,26 @@
+---
+# job file template for agFree pipeline actions `align genome` and `zoo filter`
+# variables and shared options specified here are available to all actions
+shared:
+    platform-properties:
+        sequencing-platform: ONT
+    library-properties:
+        library-type: ligFreeLR
+    genome:
+        genome:      hs1
+    zoo-genomes:
+        zoo-genomes: ${HS1_ZOO} # set externally to a list of UCSC genome names that matches your needs
+    output:
+        output-dir: /path/to/project_dir
+        data-name:  my_sample
+---
+pipeline: agFree/align:latest
+genome:
+    job-manager:
+        time-limit: 6:00:00 
+execute:
+    - genome
+---
+pipeline: agFree/zoo:latest
+execute:
+    - filter

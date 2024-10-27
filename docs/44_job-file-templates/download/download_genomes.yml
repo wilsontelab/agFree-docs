@@ -1,0 +1,38 @@
+---
+# job file template for agFree pipeline action `genome download`
+# to obtain haploid reference genomes in standardized formats
+pipeline: agFree/genome:latest
+variables:
+    GENOMES: hs1 hg38 mm39 # thus, this job files downloads multiple genomes
+download:
+    download-genome:
+        genome:     ${GENOMES}
+    output:
+        output-dir: ${PWD}/_download_genomes # the working directory, not where genomes will be downloaded
+        data-name:  ${GENOMES}
+execute:
+    - download
+
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# at present, the best choice for obtaining exclusion regions for genome hs1
+# is to manually download the bed format (not bed.gz format) file:
+#     T2T.excluderanges.bed
+# from Google Drive:
+#     https://drive.google.com/drive/folders/1sF9m8Y3eZouTZ3IEEywjs2kfHOWFBSJT/
+# to this exact path and file name:
+#     /nfs/turbo/path-wilsonte-turbo/mdi/wilsontelab/agFree/agFree/mdi/resources/genomes/hs1/metadata/hs1.exclusions.bed
+# for details on the source of these files, see:
+#     https://github.com/dozmorovlab/excluderanges
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+# at present, the best choice for obtaining exclusion regions for genome mm39
+# is to manually download the bed format (not bed.gz format) file:
+#     mm39.excluderanges.bed
+# from Google Drive:
+#     https://drive.google.com/drive/folders/1sF9m8Y3eZouTZ3IEEywjs2kfHOWFBSJT/
+# to this exact path and file name:
+#     /nfs/turbo/path-wilsonte-turbo/mdi/wilsontelab/agFree/agFree/mdi/resources/genomes/mm39/metadata/mm39.exclusions.bed
+# for details on the source of these files, see:
+#     https://github.com/dozmorovlab/excluderanges
+# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

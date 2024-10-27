@@ -1,0 +1,18 @@
+---
+# job file template for agFree pipeline action `zoo download`
+# a zoo is a set of genomes from other species that may contaminate your data
+pipeline: agFree/zoo:latest
+variables:
+    GENOME: hs1 
+download:
+    # platform:
+    #     sequencing-platform: provided as command line option, e.g., --sequencing-platform ONT
+    genome:
+        genome:      ${GENOME}
+    zoo-genomes:
+        zoo-genomes: ${HS1_ZOO} # set externally to a list of UCSC genome names that matches your needs
+    output:
+        output-dir:  ${PWD} # the working directory, not where genomes will be downloaded
+        data-name:   _download_zoo_${GENOME}
+execute:
+    - download

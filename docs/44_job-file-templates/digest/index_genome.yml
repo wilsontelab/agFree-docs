@@ -1,0 +1,23 @@
+---
+# job file template for agFree pipeline action `genome index`
+pipeline: agFree/genome:latest
+variables:
+    GENOME: hs1
+index:
+    genome:
+        genome:  ${GENOME}
+    restriction-enzyme:
+        enzyme-name: 
+            - AluI    # thus, this job file indexes multiple enzymes for one genome
+            - HaeIII
+            - PvuII
+            - EcoRV
+    output:
+        output-dir: ${PWD} # the working directory, not where site lists will be placed
+        data-name:
+            - _index_${GENOME}_AluI
+            - _index_${GENOME}_HaeIII
+            - _index_${GENOME}_PvuII
+            - _index_${GENOME}_EcoRV
+execute:
+    - index

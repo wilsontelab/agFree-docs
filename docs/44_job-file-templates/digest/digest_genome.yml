@@ -1,0 +1,17 @@
+---
+# job file template for agFree pipeline action `genome digest`
+pipeline: agFree/genome:latest
+digest:
+    genome:
+        genome:
+            - hs1   # thus, this job file digests multiple genomes with a set of default enzymes
+            - hg38
+            - mm39
+    output:
+        output-dir: ${PWD} # the working directory, not where site lists will be placed
+        data-name:
+            - _digest_hs1
+            - _digest_hg38
+            - _digest_mm39
+execute:
+    - digest
