@@ -11,7 +11,7 @@ published: true
 Some agFree software dependencies are not available via conda
 and must be downloaded as needed using the following
 agFree pipeline actions. Use these actions directly, or
-call them using the {% include templates.md type=download %}
+call them using the {% include templates.html type="download" %}.
 
 [singularity](https://docs.sylabs.io/guides/latest/user-guide/) 
 must be available on your system for some of these commands to succeed.
