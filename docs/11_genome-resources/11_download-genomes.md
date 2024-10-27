@@ -12,7 +12,7 @@ All agFree analysis requires haploid reference genome resource files.
 
 Pipeline actions simplify download of required genome
 resource files that will be properly formatted for use. Use them directly, or
-call them using the [download job file templates](44_job-file-templates/download).
+call them using the {% include templates.html type="download" %}.
 
 It is possible to use preexisting genome resource files,
 but you may find it problematic if they don't conform to format expectations.

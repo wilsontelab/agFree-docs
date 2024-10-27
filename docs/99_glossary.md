@@ -5,7 +5,7 @@ nav_order: 90
 published: true
 ---
 
-# agFree - Glossary of Terms and Identifiers
+## agFree - Glossary of Terms and Identifiers
 
 This page provides a glossary of hierarchical terms used by the **`agFree`** data analysis pipeline.
 These keywords are used consistently throughout the code and comments, so it is essential that

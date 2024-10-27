@@ -18,7 +18,7 @@ In addition to the haplotype(s), a genotype graph always includes a
 single reference genome previously obtained using `genome download`.
 Ultimately, all variants are named relative that haploid reference.
 
-Use the following command directly, or call it using the [genotype job file templates](44_job-file-templates/genotype_graph).
+Use the following command directly, or call it using the {% include templates.html type="genotype" %}.
 
 ```sh
 af genotype construct --help

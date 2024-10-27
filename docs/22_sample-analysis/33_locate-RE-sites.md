@@ -10,7 +10,7 @@ published: true
 
 The exact gDNA you sequence may have RFLPs as compared to even the 
 most closely matched reference genome or genotype graph. 
-Use the following commands directly, or call them using the [locate job file templates](44_job-file-templates/locate),
+Use the following commands directly, or call them using the {% include templates.html type="locate" %},
 to use frequent ligFree read 5' endpoints to infer the locations of RFLP sites.
 The site list can be used for `analyze` below.
 

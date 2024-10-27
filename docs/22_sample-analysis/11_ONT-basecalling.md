@@ -14,7 +14,7 @@ The command below performs basecalling plus customized adapter trimming
 that benefits from the knowledge that ligFree reads should fuse adapters
 to blunt RE half-sites.
 
-Use the following command directly, or call it using the [ONT job file templates](44_job-file-templates/ONT).
+Use the following command directly, or call it using the {% include templates.html type="ONT" %}.
 
 ```sh
 af basecall ONT --help
@@ -34,7 +34,7 @@ If you performed live ONT or other basecalling, you should trim adapters from
 those FASTQ files in a RE-aware manner as described above.
 The `trim` pipeline can also report a summary of ONT trimming results from ubam.
 
-Use the following commands directly, or call them using the [ONT job file templates](44_job-file-templates/ONT).
+Use the following commands directly, or call them using the {% include templates.html type="ONT" %}.
 
 ```sh
 af trim --help

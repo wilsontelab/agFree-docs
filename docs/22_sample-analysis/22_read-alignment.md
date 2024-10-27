@@ -17,7 +17,7 @@ The `align` pipeline action you choose determines the type of reference
 aligned to - either a linear reference genome or a genotype graph
 as obtained above.
 
-Use the following commands directly, or call them using the [alignment job file templates](44_job-file-templates/align).
+Use the following commands directly, or call them using the {% include templates.html type="align" %}.
 
 ```sh
 af align --help
@@ -37,7 +37,7 @@ It has custom agFree tags and null values for SEQ and QUAL for non-variant reads
 
 Orthologous sequences from other species (food organisms, pets, laboratory animals...) 
 that contaminate libraries can lead to false positive rare variant calls.
-Use the following commands directly, or call them using the [alignment job file templates](44_job-file-templates/align).
+Use the following commands directly, or call them using the {% include templates.html type="align" %}.
 to extract the QNAMEs of reads that align better to another genome in a 'zoo' of such organisms.
 The read list is used by the `analyze` pipeline below.
 

@@ -13,7 +13,7 @@ restriction enzyme (RE) sites is _in silico_ digestion of a relevant
 reference genome or genotype graph obtained above. Genome digestion is done for many 
 REs simultaneously, wheres genotype digestion is done one RE at a time.
 
-Use the following commands directly, or call them using the [digestion job file templates](44_job-file-templates/digest).
+Use the following commands directly, or call them using the {% include templates.html type="digest" %}.
 
 ```sh
 af genome digest --help
