@@ -9,19 +9,19 @@ published: true
 ### Build the required conda enviroments
 
 agFree uses [conda](https://docs.conda.io/en/latest/) environments to 
-configure software dependencies whenever possible. To use agFree, you must build 
-these environments as follows. 
+configure version-controlled software dependencies whenever possible. 
+To use agFree, you must build these environments as follows. 
 
 All environments are listed, 
 you may not need to build them all for your work.
 
 `conda` must be available on your system for these commands to succeed.
 To activate conda during command execution, e.g., on a shared compute
-server resource, you many need to edit file 
+server resource, you may need to edit file 
 `agFree/mdi/config/stage1-pipelines.yml` in your agFree installation
 to set options `conda:load-command` and possibly `conda:profile-script`.
 
-TODO: implement singularity container support
+<!-- TODO: implement singularity container support -->
 
 ```sh
 af genome conda --help

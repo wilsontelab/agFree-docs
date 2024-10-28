@@ -9,15 +9,14 @@ published: true
 ### Acquire and configure agFree code
 
 Follow 
-[these instructions](https://github.com/wilsontelab/agFree/tree/main?tab=readme-ov-file#quick-start-single-suite-installation-recommended) 
-to
-clone the agFree gitHub repository and 
+{% include agFree-link.html text="these instructions" path="" tag="quick-start-single-suite-installation-recommended" %}
+to clone the agFree gitHub repository and 
 install its [MDI](https://midataint.github.io/) framework dependencies.
 
 This initial agFree code installation takes only a minute or two.
 
 Instructions below assume you created an alias to your
-agFree installation called `af. Substitute your alias or command as needed.
+agFree installation called `af`. Substitute your alias or command path as needed.
 
 Notice the folder structure of your agFree installation (abbreviated):
 

@@ -12,8 +12,8 @@ Armed with read alignments and site lists, you will now examine reads for eviden
 of chimeras and other artifacts to perform RE-based error correction. 
 
 Use the following commands directly, or call them using the {% include templates.html type="analyze" %},
-to convert alignments into fragment maps (required) and parse those maps
-into lists of SVs and/or SNVs.
+to convert alignments into fragment maps (required) and the parse those maps
+into lists of either SVs and/or SNVs as needed.
 
 ```sh
 af analyze --help

@@ -15,17 +15,17 @@ They are a convenient and powerful way to organize, track, and maintain a histor
 your agFree pipeline execution history.
 
 In most use cases, we recommend using job files to make calls to agFree pipelines,
-although you can also call all agFree pipeline actions from the command line or within 
+although you can also call all actions from the command line or within 
 a bash script. 
 
-Note that agFree job file templates are broken down into pieces
+Provided agFree job file templates are broken into pieces
 to introduce their concepts and structures. In actual use,
 you may want to use composite job files that string
 calls to multiple pipelines together in a single file, 
 [as described here](https://midataint.github.io/mdi/docs/job_config_files.html#multi-pipeline-job-files).
 
 To illustrate the relationship between job files and command line options,
-the following command lists all options for pipeline action `align genome`:
+the following command lists all options for pipeline action `af align genome`:
 
 ```sh
 af align genome --help
@@ -40,6 +40,6 @@ af align template --all-options
 Most options have defaults and do not need to be specified every time.
 Accordingly, our {% include templates.html type="" %} are shorter than the complete option templates.
 
-Using job file templates additionally exposes the many useful 
+Using job files additionally exposes many useful 
 [MDI command line interface tools](https://midataint.github.io/mdi/docs/commands/management.html)
-that you can use to monitor your work jobs.
+you can use to monitor your work jobs.

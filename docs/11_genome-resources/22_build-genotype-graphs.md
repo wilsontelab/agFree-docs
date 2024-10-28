@@ -15,7 +15,7 @@ This helps identify and disregard clonal variants found in the genotype
 but not the reference genome.
 
 In addition to the haplotype(s), a genotype graph always includes a 
-single reference genome previously obtained using `genome download`.
+single reference genome previously obtained using `af genome download`.
 Ultimately, all variants are named relative that haploid reference.
 
 Use the following command directly, or call it using the {% include templates.html type="genotype" %}.

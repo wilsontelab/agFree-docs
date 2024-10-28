@@ -8,14 +8,23 @@ published: true
 
 ### RE site coordinate definition
 
-In all files, the agFree pipelines identify the reference coordinate position 
-AFTER the cleaved phosphodiester bond as the RE site position according to the following diagram:
+At all stages, agFree pipelines identify the haploid reference coordinate position 
+AFTER the cleaved phosphodiester bond as the RE site position, e.g., `5'-gat|Atc`,
+according to the following diagram:
 
-IMAGE PENDING
+```
+1234 56789
+----|*----
+```
+
+When sites are inferred from read data, any clips on the read terminus are used to
+adjust the site position to the location it would have been if the clip was aligned.
+Trimmed ONT adapter bases are ignored during this process, i.e., site positions are
+determined from trimmed but unclipped reads.
 
 ### Genome and genotype in silico RE digestion
 
-The `digest` pipeline actions scan reference sequences for _in silico_ defined RE sites.
+The `af digest` pipeline actions scan reference sequences for _in silico_ RE sites.
 
 For haploid reference genomes, a series of headerless files are created for all predefined
 REs as `<--genome-dir>/RE_maps/<--genome>.digest.<--enzyme-name>.txt.gz`.
@@ -37,9 +46,9 @@ File `<--genotype>.<--enzyme-name>.sites.gz` in that folder has columns:
 ### RE site localization and indexing
 
 Beyond _in silico_ digestion, an input sample genotype subjected to ligFree
-sequencing can be analyzed by the `locate` pipeline actions to generate known + RFLP
+sequencing can be analyzed by the `af locate` pipeline actions to generate known + RFLP
 site lists. This process results in a set of resuable files that index the
-haploid reference genome for rapid read-to-fragment site matching.
+haploid reference genome for rapid matching of read ends to RE sites.
 
 The files of located RE sites for a genotype are placed into a folder named `<--genotype>_<--enzyme-name>`.
 
@@ -55,7 +64,7 @@ will ultimately be used to filter against non-matching read sequences):
     - **chrom** = RNAME, as above
     - **chromIndex1** = as above
     - **nSites** = number of RE sites on chrom
-    - **chromSize** = size of chrom in bases
+    - **chromSize** = size of chrom in bp
     - **closestSiteOffset** = byte offset to chrom in filtering_sites.closest_site file
     - **siteDataOffset** = byte offset to chrom in filtering_sites.site_data file
 

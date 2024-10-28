@@ -26,13 +26,14 @@ It takes many hours to days to basecall large ONT data sets with the sup model.
 You will typically submit these jobs to your shared server job scheduler
 or use another compute resource with dedicated GPUs.
 
-Basecalling places unaligned bam (ubam) files into `<--output-dir>/<--data-name>/ubam`.
+Basecalling places unaligned bam (UBAM) files into `<--output-dir>/<--data-name>/ubam`.
 
 ### OPTIONAL: Trim adapters from pre-basecalled ONT reads
 
 If you performed live ONT or other basecalling, you should trim adapters from
 those FASTQ files in a RE-aware manner as described above.
 The `trim` pipeline can also report a summary of ONT trimming results from ubam files.
+These steps are not needed if you use the `af basecall ONT` action above.
 
 Use the following commands directly, or call them using the {% include templates.html type="ONT" %}.
 
@@ -47,4 +48,4 @@ af submit <jobFile>.yml
 It takes minutes to hours to trim ONT reads, depending on your data yield.
 You will typically submit these jobs to your shared server job scheduler.
 
-Output is ubam similar to basecalling, above.
+Output is UBAM similar to basecalling, above.

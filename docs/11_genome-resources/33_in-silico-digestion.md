@@ -34,7 +34,7 @@ in a Stage 2 app.
 
 If you are analyzing tagFree libraries, you must further create a static index 
 of each genome's _in silico_ sites obtained above for each relevant RE
-(as opposed to using the `locate` pipeline in ligFree, as described below).
+(as opposed to using the `af locate` pipeline in ligFree, as described below).
 
 Site indexing is performed automatically during genotype _in silico_ digestion,
 so this section only applies to haploid reference genomes.
@@ -53,5 +53,5 @@ but could do it in an interactive shell.
 
 Indices are placed in the pre-existing genome folder.
 
-You could use `genome index` output as `--re-sites-dir` for ligFree analysis,
-but using post-alignment `locate`, below, provides better RFLP sensitivity.
+You could pass `af genome index` output to option `--re-sites-dir` for ligFree analysis,
+but using post-alignment `af locate`, below, provides better RFLP sensitivity.

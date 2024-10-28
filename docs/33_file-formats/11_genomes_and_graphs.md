@@ -16,7 +16,7 @@ Genome FASTA files will be automatically indexed as needed by `samtools faidx` a
 
 Genomes in a zoo of species for cross-species alignment are in similar FASTA format.
 
-### Assembly haplotypes (FASTA)
+### Haplotype assemblies (FASTA)
 
 Files providing the sequence of input phased haplotype contigs should also be in FASTA format,
 provided as one FASTA file per haplotype and communicated via options
@@ -26,7 +26,7 @@ provided as one FASTA file per haplotype and communicated via options
 
 The path to genotype graph files are communicated via options `--genotype-dir` and `--genotype`.
 
-Pipeline action `genotype construct` populates the genotype directory with a variety of 
+Pipeline action `af genotype construct` populates the genotype directory with a variety of 
 graph file formats as created by 
 [Minigraph-Cactus Pangenome](https://github.com/ComparativeGenomicsToolkit/cactus/blob/master/doc/pangenome.md),
 including the `gaf.gz`, `gbz`, `gfa.gz`, `paf`, and `xg` formats.

@@ -22,12 +22,12 @@ These pages provide a step-by-step guide for using the **agFree** MDI tool suite
     - performing _in silico_ digestion of genomes or genotypes
 - executing iterative, sample-level analyses, including:
     - ONT basecalling (when applicable)
-    - trimming ONT reads
+    - trimming adapters from ONT reads
     - aligning reads to a genome or genotype graph
-    - locating observed RE RFLP sites in read data (ligFree only)
+    - locating observed RFLP sites in read data (ligFree only)
     - finding high-quality, error-corrected SVs and SNVs
 
-Steps are presented in the order in which you will typically execute them. 
+Steps are presented in the order in which they are typically executed. 
 
 Commands are structured in a hierarchical manner where _pipelines_ (e.g., `align`)
 have one or more _actions_ (e.g., `genome`), to yield calls like `af align genome`.

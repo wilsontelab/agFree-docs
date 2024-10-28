@@ -159,6 +159,7 @@ A portion of a haplotype released by cleavage at sites/RFLPs by digestion with a
 --unused--|--frag1--|--frag2--|--unused--  (numbering resets on each chrom)
         site1     site2     site3
 ```
+
 ### partial
 Incomplete digestion of gDNA with a RE, resulting in uncleaved sites in multi-fragment contigs.
 - do not confuse partial digestion with incomplete reads
@@ -180,7 +181,7 @@ An adjective describing a sequence that does not extend end-to-end on an insert.
 
 Some of the following keywords are shared by sequence graph encoding as they are general terms derived from graph theory,
 but in agFree they refer to the way that sequence paths are encoded as linear representations of single observed sequences.
-The general difference between sequence graphs and agFree paths is that graph nodes represent base sequences whereas agFree
+The main difference between sequence graphs and agFree paths is that graph nodes represent base sequences whereas agFree
 nodes represent numbered positions in a haploid genome reference.
 
 ### node (node position)
