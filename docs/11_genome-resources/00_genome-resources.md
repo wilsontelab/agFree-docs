@@ -23,4 +23,4 @@ matching your gDNA source. agFree pipelines provide tools to build, index, and
 digest these custom reference genotype graphs.
 
 In many downstream steps you will specify actions by the type
-of reference you are using, e.g., `align genome` vs. `align genotype`.
+of reference you are using, e.g., `af align genome` vs. `af align genotype`.

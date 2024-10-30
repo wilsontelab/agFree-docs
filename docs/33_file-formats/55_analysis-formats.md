@@ -21,21 +21,76 @@ Rather, it is read from the directory to which analysis output will also be writ
 ### Targeted analysis regions (BED)
 
 In some cases, your library may have been subjected to pre-sequencing target capture
-or ONT adaptive sampling to enrich for target regions. Such target regions are communicated via option `--targets-bed-file`, which should point to a BED file with at least columns:
+or ONT adaptive sampling to enrich for target regions. Such target regions are 
+communicated via option `--targets-bed`, which should point to a BED file with at least columns:
 - chrom = RNAME of the chromosome
 - start = 0-referenced start position
 - end = 1-referenced end position
 
-Leave `--targets-bed-file` as the default `NA` if no target regions were used, i.e.,
+Leave `--targets-bed` as the default `NA` if no target regions were used, i.e.,
 if whole genome sequencing (WGS) was performed.
 
-### Fragment analysis outputs
+### Fragment analysis output (SITE_SAM)
 
-The first step in all agFree variant analysis is to filter and index the read alignments against various quality metrics. Filtered alignments then PENDING.
+The first step in all agFree variant analysis is to filter, adjust, and index the read alignments 
+against various quality metrics. Briefly, the steps entail:
+- purging unmapped reads
+- filtering against a zoo of genomes (optional)
+- alignment quality filtering
+- RE site matching
+- chimera splitting
+- on-target assessment
+
+The results of these steps are considered to be valid fragments for variant analysis.
+
+Kept alignments are written to a series of gzipped SITE_SAM format files
+in directory `<--output-dir>/<--data-name>/site_sam` 
+named `*.<chrom>.site_sam.gz`.
+
+SITE_SAM is a custom format with some fields transferred as-is from the
+alignment BAM file, plus additional agFree-specific fields.
+Field definitions are listed in file 
+{% include agFree-link.html text="site_sam_columns.csv" path="pipelines/analyze/fragments/site_sam_columns.csv" tag = "" %}.
+
+Each unique fragment is identified by a unique S_QNAME value
+and represented by one or more consecutive lines in the SITE_SAM file.
+Each line/row corresponds to a single alignment segment from the fragment.
+Thus, there is one line per fragment if no SV was present, 
+and two or more lines per fragment if a SV was present.
+The alignments for a fragment are sorted in the order in which they were sequenced,
+starting from the 5'-most end of the read. 
+
+SV junctions are inferred by their adjacent alignments in the SITE_SAM file.
+However, not all such adjacenies are considered valid SV junctions.
+In particular, some putative junctions have been masking using the BLOCK_N
+field, where a block is one or more alignments that most likely represented a 
+contiguous stretch of the same genomic region, sometimes interrupted by a low-quality region
+that failed to align contiguously. Two consecutive alignments with the same BLOCK_N
+are considered to be part of the same non-SV read span.
+
+Persistent read pairs have been hard-split by forcing them to have 
+updated, distinct S_QNAME values by addition of colon-delimited extensions:
+- splitGapReadN, where:
+    - 0 means sequence was not split at a gap (unpaired platforms, quality/unmapped orphans, and proper pairs)
+    - 1|2 means sequence was split at a gap, where N is the original readN for each orphan
+- readN = the original read number 1 or 2
+
+Whenever fragments were split at low quality alignments or inferred chimeric junctions,
+the distal, more 3' alignments (and thus junctions) on the read are discarded as unreliable.
+
+Additional SITE_SAME fields record:
+- the RE sites found at the ends of the alignments
+- when applicable, the projected 3' RE sites for incomplete reads
+- matching haplotypes
+- additional fragment metadata related to junction presence and target matches
+
+In general, SITE_SAM files are an intermediate format not typically needed for
+anything except the next variant analysis steps.
 
 ### Structural variant (SV) analysis and filtering outputs
 
-PENDING
+The next pipeline actions parse the SITE_SAM fragment files to characterize, aggregate, and filter
+SV junctions. 
 
 ### Single-nucleotide variant (SNV) analysis and filtering outputs
 
