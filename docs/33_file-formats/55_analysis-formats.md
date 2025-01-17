@@ -72,7 +72,7 @@ Persistent read pairs have been hard-split by forcing them to have
 updated, distinct S_QNAME values by addition of colon-delimited extensions:
 - splitGapReadN, where:
     - 0 means sequence was not split at a gap (unpaired platforms, quality/unmapped orphans, and proper pairs)
-    - 1|2 means sequence was split at a gap, where N is the original readN for each orphan
+    - 1 or 2 means sequence was split at a gap, where N is the original readN for each orphan
 - readN = the original read number 1 or 2
 
 Whenever fragments were split at low quality alignments or inferred chimeric junctions,
@@ -94,4 +94,3 @@ SV junctions.
 
 ### Single-nucleotide variant (SNV) analysis and filtering outputs
 
-PENDING
